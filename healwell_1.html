@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HealWell – Care that reaches every doorstep</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Poppins:wght@600;700&display=swap">
+<style>
+:root{--bg:#f3f9ff;--card:#fff;--ink:#16324f;--mut:#5b7690;--soft:#dcecfb;--mint:#dff5e8;--royal:#1747c9;--green:#2e9e6a;--line:#d3e3f3;--red:#d9304f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a2b;--card:#15263d;--ink:#e6f0fb;--mut:#9db5cc;--soft:#1b3350;--mint:#173a2e;--royal:#6f96ff;--green:#5ccf97;--line:#264261;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1a2b;--card:#15263d;--ink:#e6f0fb;--mut:#9db5cc;--soft:#1b3350;--mint:#173a2e;--royal:#6f96ff;--green:#5ccf97;--line:#264261;color-scheme:dark}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 Nunito,system-ui,sans-serif}
+h1,h2,h3{font-family:Poppins,Nunito,sans-serif;margin:0 0 .4em;line-height:1.2}
+.wrap{max-width:1100px;margin:auto;padding:0 18px}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--card) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:14px;padding:10px 0;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:8px;font:700 22px Poppins;color:var(--royal);text-decoration:none}
+nav a.l{color:var(--ink);text-decoration:none;font-weight:600;font-size:14px}
+nav .sp{flex:1}
+select,input,button{font:inherit}
+select,input[type=number]{padding:7px 10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+.btn{background:var(--royal);color:#fff;border:0;border-radius:12px;padding:11px 20px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-flex;gap:8px;align-items:center}
+.btn.g{background:var(--green)}.btn.o{background:transparent;color:var(--royal);border:2px solid var(--royal)}.btn.r{background:var(--red)}
+.hero{background:linear-gradient(135deg,var(--soft),var(--mint));padding:54px 0 46px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+.hero h1{font-size:clamp(30px,5vw,50px);color:var(--ink)}.hero h1 span{color:var(--royal)}
+.hero p{color:var(--mut);font-size:18px;max-width:520px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.pulse{width:100%;max-width:300px;margin:auto;animation:fl 4s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-8px)}}
+.hope{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.hope span{background:var(--card);border-radius:99px;padding:5px 14px;font-size:14px;font-weight:600;color:var(--green);border:1px solid var(--line)}
+section{padding:46px 0}
+.sec-t{text-align:center;margin-bottom:26px}.sec-t p{color:var(--mut);margin:0}
+.sec-t h2{font-size:clamp(24px,3.6vw,34px)}.sec-t h2 b{color:var(--royal)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 4px 16px rgba(23,71,201,.06)}
+.card .ic{width:46px;height:46px;border-radius:14px;background:var(--soft);display:grid;place-items:center;font-size:24px;margin-bottom:10px}
+.card:nth-child(even) .ic{background:var(--mint)}
+.card h3{font-size:17px}.card p{margin:0;color:var(--mut);font-size:15px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.out{background:var(--soft);border-radius:12px;padding:12px;font-size:14px;min-height:46px;margin-top:10px;word-break:break-word}
+.hosp{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.tag{font-size:12px;font-weight:800;border-radius:99px;padding:2px 10px;background:var(--mint);color:var(--green)}
+.tag.w{background:var(--soft);color:var(--royal)}
+.map{width:100%;height:auto;border-radius:16px;background:linear-gradient(#e9f4ff,#e6f7ec);border:1px solid var(--line)}
+.steps{display:flex;gap:6px;margin:14px 0 4px;flex-wrap:wrap}
+.steps div{flex:1;min-width:90px;text-align:center;font-size:12px;font-weight:700;padding:8px 4px;border-radius:10px;background:var(--soft);color:var(--mut)}
+.steps div.on{background:var(--royal);color:#fff}.steps div.done{background:var(--green);color:#fff}
+.bar{height:10px;background:var(--soft);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--royal))}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px;text-align:center}
+.stats b{display:block;font:700 20px Poppins;color:var(--royal)}.stats small{color:var(--mut)}
+.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.tabs button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 16px;border-radius:99px;font-weight:700;cursor:pointer}
+.tabs button.on{background:var(--royal);color:#fff;border-color:var(--royal)}
+.pane{display:none}.pane.on{display:block}
+.vit{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.vit div{background:var(--soft);border-radius:14px;padding:14px;text-align:center}.vit div:nth-child(even){background:var(--mint)}
+.vit b{display:block;font:700 24px Poppins;color:var(--royal)}.vit small{color:var(--mut)}
+label.m{display:flex;gap:10px;align-items:center;padding:9px 0;border-bottom:1px dashed var(--line)}
+label.m input{width:20px;height:20px;accent-color:var(--green)}
+.form{display:flex;gap:12px;flex-wrap:wrap;align-items:end}.form label{display:flex;flex-direction:column;font-size:13px;font-weight:700;color:var(--mut);gap:4px}
+.mic{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;width:62px;height:62px;border-radius:50%;border:0;background:var(--green);color:#fff;font-size:28px;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.mic.on{background:var(--red);animation:fl 1s infinite}
+footer{background:var(--royal);color:#fff;padding:30px 0;text-align:center}
+footer a{color:#fff;font-weight:800}
+.note{font-size:12.5px;color:var(--mut);margin-top:8px}
+@media(max-width:800px){.hero .wrap,.two{grid-template-columns:1fr}nav a.l{display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="logo" href="#top"><svg width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#1747c9"/><path d="M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z" fill="#fff"/><path d="M16 27s-7-4.5-7-9a3.5 3.5 0 0 1 7-1 3.5 3.5 0 0 1 7 1c0 4.500-7 9-7 9z" fill="#5fd39a" opacity=".0"/></svg>HealWell</a>
+<span class="sp"></span>
+<a class="l" href="#emergency">Emergency</a><a class="l" href="#drone">Drone</a><a class="l" href="#dash">Dashboard</a><a class="l" href="#schemes">Schemes</a>
+<select id="lang" aria-label="Language"><option value="en">English</option><option value="hi">हिन्दी</option><option value="te">తెలుగు</option><option value="ta">தமிழ்</option><option value="kn">ಕನ್ನಡ</option><option value="ml">മലയാളം</option><option value="bn">বাংলা</option></select>
+</nav></div></header>
+
+<div class="hero" id="top"><div class="wrap">
+<div>
+<h1>Heal<span>Well</span><br><small id="tag" style="font-size:.52em;font-weight:700">Care that reaches every doorstep</small></h1>
+<p>Emergency connectivity, hospital-authorised drone delivery and gentle voice help – built for villages, families and our senior citizens.</p>
+<div class="cta"><a class="btn r" href="#emergency">🚨 <span id="sos">Emergency help</span></a><a class="btn" href="#drone">🚁 <span id="trk">Track drone</span></a><a class="btn o" href="#dash">My dashboard</a></div>
+<div class="hope"><span>💙 You are not alone</span><span>🌿 Help is on its way</span><span>✨ Every life matters</span></div>
+</div>
+<svg class="pulse" viewBox="0 0 300 300" aria-hidden="true"><circle cx="150" cy="150" r="140" fill="#fff" opacity=".6"/><circle cx="150" cy="150" r="105" fill="#dff5e8"/><path d="M128 70h44v58h58v44h-58v58h-44v-58H70v-44h58z" fill="#1747c9"/><path d="M60 150h50l14-34 24 70 18-48 12 12h62" fill="none" stroke="#5fd39a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div></div>
+
+<section><div class="wrap">
+<div class="sec-t"><h2>Everything for <b>better care</b></h2><p>Ten promises, one simple platform</p></div>
+<div class="grid">
+<div class="card"><div class="ic">📞</div><h3>Emergency hospital connect</h3><p>Direct calling and one-tap location sharing.</p></div>
+<div class="card"><div class="ic">🚑</div><h3>Ambulance assistance</h3><p>Coordinated emergency response.</p></div>
+<div class="card"><div class="ic">🚁</div><h3>Drone delivery</h3><p>Hospital-authorised medicines and approved first-aid supplies.</p></div>
+<div class="card"><div class="ic">📍</div><h3>Live tracking</h3><p>Follow your patient and your delivery in real time.</p></div>
+<div class="card"><div class="ic">🗣️</div><h3>7 languages</h3><p>Hindi, Telugu, Tamil, Kannada, Malayalam, Bengali, English.</p></div>
+<div class="card"><div class="ic">🎙️</div><h3>Voice assistant</h3><p>Speak, and HealWell answers – made for seniors.</p></div>
+<div class="card"><div class="ic">🏛️</div><h3>Scheme discovery</h3><p>Find government schemes and check preliminary eligibility.</p></div>
+<div class="card"><div class="ic">💰</div><h3>Cost assistance</h3><p>Clear information on help with healthcare costs.</p></div>
+<div class="card"><div class="ic">🤝</div><h3>Caregiver connect</h3><p>Hospitals, doctors and family on one page.</p></div>
+<div class="card"><div class="ic">🔒</div><h3>Secure records</h3><p>Consent-based patient information management.</p></div>
+</div></div></section>
+
+<section id="emergency" style="background:var(--soft)"><div class="wrap">
+<div class="sec-t"><h2>🚨 <b>Emergency</b> centre</h2><p>Stay calm. Tap, and help begins.</p></div>
+<div class="two">
+<div class="card"><h3>Get help now</h3>
+<div class="row"><a class="btn r" href="tel:108">📞 Call ambulance 108</a><a class="btn" href="tel:112">☎️ Emergency 112</a></div>
+<div class="row"><button class="btn g" id="loc">📍 Share my location</button></div>
+<div class="out" id="locOut">Your location link will appear here, ready to send to family or the hospital.</div>
+<p class="note">Calls use your phone dialler. If life is in danger, call 108 / 112 immediately.</p></div>
+<div class="card"><h3>Emergency circular to nearby hospitals</h3>
+<div id="hl"><div class="hosp"><span>Sunrise District Hospital · 3.2 km</span><span class="tag w">Ready</span></div><div class="hosp"><span>Rural PHC Anandapuram · 5.8 km</span><span class="tag w">Ready</span></div><div class="hosp"><span>Lifeline Medical Centre · 9.4 km</span><span class="tag w">Ready</span></div></div>
+<div class="row"><button class="btn" id="circ">📣 Send alert circular</button></div>
+<p class="note">Demo: sample hospitals and simulated responses.</p></div>
+</div></div></section>
+
+<section id="drone"><div class="wrap">
+<div class="sec-t"><h2>🚁 Live <b>drone</b> tracking</h2><p>Hospital-authorised delivery of medicines and approved first-aid supplies</p></div>
+<div class="two">
+<div class="card"><svg class="map" viewBox="0 0 400 260" id="map">
+<path d="M0 200 Q100 170 180 215 T400 190 V260 H0z" fill="#bfe8cf" opacity=".7"/><path d="M0 120 Q90 90 170 130 T400 100" fill="none" stroke="#b4d5f3" stroke-width="14" opacity=".7"/>
+<path id="route" d="M60 190 C140 60 260 60 340 150" fill="none" stroke="#1747c9" stroke-width="3" stroke-dasharray="7 7"/>
+<g transform="translate(60 190)"><circle r="17" fill="#fff" stroke="#1747c9" stroke-width="2"/><path d="M-3-9h6v6h6v6h-6v6h-6v-6h-6v-6h6z" fill="#1747c9"/></g>
+<g transform="translate(340 150)"><circle r="17" fill="#fff" stroke="#2e9e6a" stroke-width="2"/><path d="M-9 2L0-8 9 2v8h-18z" fill="#2e9e6a"/></g>
+<g id="dr"><circle r="15" fill="#1747c9" opacity=".18"/><text text-anchor="middle" dy="7" font-size="22">🚁</text></g>
+</svg>
+<div class="steps" id="steps"><div>Approved</div><div>Packed</div><div>In flight</div><div>Arriving</div><div>Delivered</div></div>
+<div class="bar"><i id="pb"></i></div>
+<div class="stats"><div><b id="eta">8 min</b><small>ETA</small></div><div><b id="dist">4.2 km</b><small>Distance</small></div><div><b>45 km/h</b><small>Speed</small></div></div>
+<div class="row"><button class="btn o" id="rs">↻ Restart demo</button></div></div>
+<div class="card"><h3>Order #HW-2048</h3>
+<div class="hosp"><span>Paracetamol 500mg ×10</span><span class="tag">Authorised</span></div>
+<div class="hosp"><span>ORS sachets ×6</span><span class="tag">Authorised</span></div>
+<div class="hosp"><span>First-aid kit (basic)</span><span class="tag">Authorised</span></div>
+<p style="margin-top:14px"><b>Authorised by:</b> Dr. Meera Rao, Sunrise District Hospital<br><b>Patient:</b> Lakshmi Devi, 68 · Anandapuram</p>
+<p class="note">Drones carry only items approved by a hospital doctor. Patient location and delivery status update live (simulated in this demo).</p>
+<div class="out" id="dmsg">Preparing your delivery…</div></div>
+</div></div></section>
+
+<section id="dash" style="background:var(--mint)"><div class="wrap">
+<div class="sec-t"><h2>Patient <b>dashboard</b></h2><p>Welcome back, Lakshmi 💚 – you are doing great today</p></div>
+<div class="card">
+<div class="tabs" id="tabs"><button class="on" data-p="p1">Overview</button><button data-p="p2">Medicines</button><button data-p="p3">Appointments</button><button data-p="p4">Records & caregivers</button></div>
+<div class="pane on" id="p1"><div class="vit"><div><b>72</b><small>❤️ Heart rate bpm</small></div><div><b>128/82</b><small>🩸 Blood pressure</small></div><div><b>98%</b><small>🫁 SpO₂</small></div><div><b>5,420</b><small>👣 Steps today</small></div></div><p class="note">Sample data for demonstration.</p></div>
+<div class="pane" id="p2"><label class="m"><input type="checkbox" checked> 8:00 AM · Amlodipine 5mg</label><label class="m"><input type="checkbox"> 2:00 PM · Vitamin D3</label><label class="m"><input type="checkbox"> 9:00 PM · Metformin 500mg</label><div class="out" id="medOut">Tick each medicine as you take it.</div></div>
+<div class="pane" id="p3"><div class="hosp"><span>🩺 Dr. Rao · Tele-consult</span><span class="tag w">Tue 10:30 AM</span></div><div class="hosp"><span>🧪 Blood sugar test (home visit)</span><span class="tag w">Fri 8:00 AM</span></div><div class="hosp"><span>👁️ Eye check · District Hospital</span><span class="tag w">Next month</span></div></div>
+<div class="pane" id="p4"><div class="hosp"><span>👨‍👩‍👧 Ravi (son) · caregiver</span><span class="tag">Can view</span></div><div class="hosp"><span>🏥 Sunrise District Hospital</span><span class="tag">Can view</span></div><div class="hosp"><span>🔒 Records shared only with your consent</span><span class="tag w">Manage</span></div></div>
+</div></div></section>
+
+<section id="schemes"><div class="wrap">
+<div class="sec-t"><h2>Government <b>scheme</b> finder</h2><p>A quick, preliminary check – no paperwork needed</p></div>
+<div class="card"><div class="form">
+<label>Age<input type="number" id="age" value="68" min="0" max="120"></label>
+<label>Family income / year (₹)<input type="number" id="inc" value="150000" step="10000"></label>
+<label>Ration card<select id="rc"><option value="y">Yes</option><option value="n">No</option></select></label>
+<button class="btn g" id="chk">Check eligibility</button></div>
+<div class="out" id="sch">Enter your details and tap Check.</div>
+<p class="note">Preliminary guide only; final eligibility is decided by the scheme authority. Please confirm at your nearest hospital or Common Service Centre.</p></div></div></section>
+
+<footer><div class="wrap"><b style="font:700 20px Poppins">HealWell</b><br>Hope, delivered. 💙<br>
+<a href="https://github.com/YOUR-USERNAME/healwell" rel="noopener">GitHub repository</a> · Built for rural communities and senior citizens<br><small>Prototype with simulated data – not a substitute for professional medical care.</small></div></footer>
+
+<button class="mic" id="mic" aria-label="Voice assistant">🎙️</button>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const T={en:["Care that reaches every doorstep","Emergency help","Track drone"],te:["ప్రతి ఇంటి ముంగిటకు వైద్యం","అత్యవసర సహాయం","డ్రోన్ ట్రాక్ చేయండి"],ta:["ஒவ்வொரு வீட்டு வாசலுக்கும் மருத்துவம்","அவசர உதவி","ட்ரோனைக் கண்காணிக்கவும்"],kn:["ಪ್ರತಿ ಮನೆಬಾಗಿಲಿಗೂ ಆರೋಗ್ಯ ಸೇವೆ","ತುರ್ತು ಸಹಾಯ","ಡ್ರೋನ್ ಟ್ರ್ಯಾಕ್ ಮಾಡಿ"],ml:["ഓരോ വീട്ടുപടിക്കലും ചികിത്സ","അടിയന്തര സഹായം","ഡ്രോൺ ട്രാക്ക് ചെയ്യുക"],bn:["প্রতিটি দোরগোড়ায় চিকিৎসা","জরুরি সহায়তা","ড্রোন ট্র্যাক করুন"]};
+const VL={en:"en-IN",te:"te-IN",ta:"ta-IN",kn:"kn-IN",ml:"ml-IN",bn:"bn-IN",hi:"hi-IN"};
+$("#lang").onchange=e=>applyLang(e.target.value);
+$$("#tabs button").forEach(b=>b.onclick=()=>{$$("#tabs button").forEach(x=>x.classList.remove("on"));$$(".pane").forEach(x=>x.classList.remove("on"));b.classList.add("on");$("#"+b.dataset.p).classList.add("on")});
+$$("#p2 input").forEach(c=>c.onchange=()=>{const n=$$("#p2 input:checked").length;$("#medOut").textContent=n===3?"Wonderful! All medicines taken today 🌿":n+" of 3 medicines taken. Keep going!"});
+$("#loc").onclick=()=>{const o=$("#locOut");if(!navigator.geolocation){o.textContent="Location is not available on this device.";return}o.textContent="Finding you…";
+navigator.geolocation.getCurrentPosition(p=>{const u="https://maps.google.com/?q="+p.coords.latitude.toFixed(5)+","+p.coords.longitude.toFixed(5);o.innerHTML="📍 Location ready: <a href='"+u+"' target='_blank' rel='noopener'>"+u+"</a><br><a href='sms:?body="+encodeURIComponent("I need help. My location: "+u)+"'>Send by SMS</a>"},()=>{o.textContent="Please allow location access, or call 108 / 112 now."},{timeout:10000})};
+$("#circ").onclick=()=>{const hs=$$("#hl .tag");hs.forEach(t=>{t.textContent="Sending…";t.className="tag w"});hs.forEach((t,i)=>setTimeout(()=>{t.textContent=i==0?"Ambulance ready":i==1?"Doctor alerted":"Beds available";t.className="tag"},1000+i*900))};
+const R=$("#route"),L=R.getTotalLength(),S=["Approved","Packed","In flight","Arriving","Delivered"];let t0,run=0;
+function frame(ts){if(!t0)t0=ts;let p=Math.min((ts-t0)/16000,1);
+let e=p<.15?0:p>.97?1:(p-.15)/.82;const pt=R.getPointAtLength(L*(p<.15?0:e));$("#dr").setAttribute("transform","translate("+pt.x+" "+pt.y+")");
+const pct=Math.round(p*100);$("#pb").style.width=pct+"%";$("#eta").textContent=p>=1?"Arrived":Math.max(1,Math.ceil(8*(1-p)))+" min";$("#dist").textContent=(4.2*(1-p)).toFixed(1)+" km";
+const st=p<.08?0:p<.15?1:p<.8?2:p<1?3:4;$$("#steps div").forEach((d,i)=>d.className=i<st||st==4?"done":i==st?"on":"");
+$("#dmsg").textContent=["Doctor has authorised your order ✅","Packing your supplies carefully…","Your drone is flying to you 🚁","Almost there – please wait outdoors in a clear open space.","Delivered! Wishing you good health 💚"][st];
+if(p<1)requestAnimationFrame(frame)}
+function start(){t0=0;requestAnimationFrame(frame)}
+$("#rs").onclick=start;start();
+$("#chk").onclick=()=>{const a=+$("#age").value,i=+$("#inc").value,r=$("#rc").value,o=[];
+if(a>=70)o.push("✅ <b>Ayushman Vay Vandana</b> – health cover for citizens aged 70 and above.");
+if(r=="y"||i<=250000)o.push("✅ <b>Ayushman Bharat PM-JAY</b> – may be eligible (cover up to ₹5 lakh per family per year for eligible families).");
+if(i<=500000)o.push("✅ <b>State health schemes</b> – check with your state health department (e.g. Aarogyasri, CMCHIS).");
+if(a>=60)o.push("💙 <b>Senior citizen support</b> – ask your hospital about concessions and free check-ups.");
+$("#sch").innerHTML=o.length?o.join("<br>"):"No scheme matched. Please ask your nearest hospital or CSC about charity care and cost assistance."};
+const A=[[/आपात|मदद|एम्बुलेंस|emerg|help|ambul|pain|అత్యవ|அவசர|ತುರ್ತು|അടിയന്തര|জরুরি/i,"Calling for emergency help. Please dial one zero eight for an ambulance, and share your location."],[/दवा|medic|tablet|drug|మందు|மருந்து|ಔಷಧ|മരുന്ന്|ওষুধ/i,"Your next medicine is Vitamin D at two P M."],[/ड्रोन|drone|deliver|track|డ్రోన్|ட்ரோன்|ಡ್ರೋನ್|ഡ്രോൺ|ড্রোন/i,"Your drone is on its way. Please keep an open space ready."]];
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+function say(m){$("#dmsg").textContent="🎙️ "+m;try{const i=LI[$("#lang").value],u=new SpeechSynthesisUtterance(i==null?m:(tr(m,i)||m));u.lang=VL[$("#lang").value];speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+$("#mic").onclick=()=>{if(!SR){say("Voice input is not supported in this browser. Please try Chrome.");return}
+const r=new SR();r.lang=VL[$("#lang").value];$("#mic").classList.add("on");
+r.onresult=e=>{const q=e.results[0][0].transcript;const h=A.find(a=>a[0].test(q));say(h?h[1]:"I heard: "+q+". Try saying emergency, medicine or drone.")};
+r.onend=()=>$("#mic").classList.remove("on");r.onerror=()=>$("#mic").classList.remove("on");try{r.start()}catch(e){$("#mic").classList.remove("on")}};
+const LI={te:0,ta:1,kn:2,ml:3,bn:4,hi:5},MN=["ని.","நிமி","ನಿ.","മിനിറ്റ്","মিনিট","मिनट"],PRE=/^[^\p{L}\p{N}<]*/u;
+const H={
+"Sunrise District Hospital · 3.2 km":"सनराइज जिला अस्पताल · 3.2 किमी",
+"Rural PHC Anandapuram · 5.8 km":"ग्रामीण पीएचसी आनंदपुरम · 5.8 किमी",
+"Lifeline Medical Centre · 9.4 km":"लाइफलाइन मेडिकल सेंटर · 9.4 किमी",
+"Sunrise District Hospital":"सनराइज जिला अस्पताल",
+"Dr. Meera Rao, Sunrise District Hospital":"डॉ. मीरा राव, सनराइज जिला अस्पताल",
+"Lakshmi Devi, 68 · Anandapuram":"लक्ष्मी देवी, 68 · आनंदपुरम",
+"Paracetamol 500mg ×10":"पैरासिटामोल 500mg ×10",
+"ORS sachets ×6":"ORS पैकेट ×6",
+"8:00 AM · Amlodipine 5mg":"सुबह 8:00 · एम्लोडिपिन 5mg",
+"2:00 PM · Vitamin D3":"दोपहर 2:00 · विटामिन D3",
+"9:00 PM · Metformin 500mg":"रात 9:00 · मेटफॉर्मिन 500mg",
+"Emergency":"आपातकाल","Drone":"ड्रोन","Dashboard":"डैशबोर्ड","Schemes":"योजनाएँ",
+"Care that reaches every doorstep":"हर दहलीज़ तक पहुँचती देखभाल",
+"Emergency connectivity, hospital-authorised drone delivery and gentle voice help – built for villages, families and our senior citizens.":"आपातकालीन संपर्क, अस्पताल-अनुमोदित ड्रोन डिलीवरी और सरल आवाज़ सहायता – गाँवों, परिवारों और हमारे वरिष्ठ नागरिकों के लिए।",
+"Emergency help":"आपातकालीन सहायता","Track drone":"ड्रोन ट्रैक करें","My dashboard":"मेरा डैशबोर्ड",
+"You are not alone":"आप अकेले नहीं हैं","Help is on its way":"मदद रास्ते में है","Every life matters":"हर जीवन अनमोल है",
+"Everything for <b>better care</b>":"<b>बेहतर देखभाल</b> के लिए सब कुछ",
+"Ten promises, one simple platform":"दस वादे, एक सरल मंच",
+"Emergency hospital connect":"आपातकालीन अस्पताल संपर्क",
+"Direct calling and one-tap location sharing.":"सीधी कॉल और एक टैप में लोकेशन साझा करें।",
+"Ambulance assistance":"एम्बुलेंस सहायता",
+"Coordinated emergency response.":"समन्वित आपातकालीन प्रतिक्रिया।",
+"Drone delivery":"ड्रोन डिलीवरी",
+"Hospital-authorised medicines and approved first-aid supplies.":"अस्पताल द्वारा अनुमोदित दवाएँ और प्राथमिक चिकित्सा सामग्री।",
+"Live tracking":"लाइव ट्रैकिंग",
+"Follow your patient and your delivery in real time.":"मरीज़ और डिलीवरी को रियल टाइम में देखें।",
+"7 languages":"7 भाषाएँ",
+"Hindi, Telugu, Tamil, Kannada, Malayalam, Bengali, English.":"हिन्दी, तेलुगु, तमिल, कन्नड़, मलयालम, बंगाली, अंग्रेज़ी।",
+"Voice assistant":"आवाज़ सहायक",
+"Speak, and HealWell answers – made for seniors.":"बोलिए, HealWell जवाब देगा – वरिष्ठों के लिए।",
+"Scheme discovery":"योजना खोज",
+"Find government schemes and check preliminary eligibility.":"सरकारी योजनाएँ खोजें और प्रारंभिक पात्रता जाँचें।",
+"Cost assistance":"खर्च में सहायता",
+"Clear information on help with healthcare costs.":"इलाज के खर्च में मदद की स्पष्ट जानकारी।",
+"Caregiver connect":"देखभालकर्ता संपर्क",
+"Hospitals, doctors and family on one page.":"अस्पताल, डॉक्टर और परिवार – एक ही जगह।",
+"Secure records":"सुरक्षित रिकॉर्ड",
+"Consent-based patient information management.":"सहमति-आधारित मरीज़ जानकारी प्रबंधन।",
+"<b>Emergency</b> centre":"<b>आपातकालीन</b> केंद्र",
+"Stay calm. Tap, and help begins.":"शांत रहें। टैप करें, मदद शुरू हो जाएगी।",
+"Get help now":"अभी मदद पाएँ",
+"Call ambulance 108":"एम्बुलेंस कॉल 108",
+"Emergency 112":"आपातकाल 112",
+"Share my location":"मेरी लोकेशन साझा करें",
+"Your location link will appear here, ready to send to family or the hospital.":"आपकी लोकेशन लिंक यहाँ दिखेगी; परिवार या अस्पताल को भेजें।",
+"Calls use your phone dialler. If life is in danger, call 108 / 112 immediately.":"कॉल आपके फ़ोन के डायलर से होती हैं। जान को खतरा हो तो तुरंत 108 / 112 पर कॉल करें।",
+"Emergency circular to nearby hospitals":"नज़दीकी अस्पतालों को आपातकालीन सूचना",
+"Send alert circular":"अलर्ट सूचना भेजें",
+"Demo: sample hospitals and simulated responses.":"डेमो: नमूना अस्पताल और अनुकरण किए गए जवाब।",
+"Ready":"तैयार","Sending…":"भेजा जा रहा है…","Ambulance ready":"एम्बुलेंस तैयार","Doctor alerted":"डॉक्टर को सूचित किया","Beds available":"बिस्तर उपलब्ध",
+"Finding you…":"आपको खोजा जा रहा है…","Location ready:":"लोकेशन तैयार:","Send by SMS":"SMS से भेजें",
+"Location is not available on this device.":"इस डिवाइस पर लोकेशन उपलब्ध नहीं है।",
+"Please allow location access, or call 108 / 112 now.":"कृपया लोकेशन की अनुमति दें, या अभी 108 / 112 पर कॉल करें।",
+"Live <b>drone</b> tracking":"लाइव <b>ड्रोन</b> ट्रैकिंग",
+"Hospital-authorised delivery of medicines and approved first-aid supplies":"अस्पताल-अनुमोदित दवाओं और प्राथमिक चिकित्सा सामग्री की डिलीवरी",
+"Approved":"स्वीकृत","Packed":"पैक हुआ","In flight":"उड़ान में","Arriving":"पहुँच रहा है","Delivered":"पहुँचा दिया",
+"ETA":"पहुँचने का समय","Distance":"दूरी","Speed":"गति","Restart demo":"डेमो फिर चलाएँ","Arrived":"पहुँच गया",
+"Order #HW-2048":"ऑर्डर #HW-2048",
+"First-aid kit (basic)":"प्राथमिक चिकित्सा किट (बेसिक)",
+"Authorised":"अनुमोदित","Authorised by:":"अनुमोदन किया:","Patient:":"मरीज़:",
+"Drones carry only items approved by a hospital doctor. Patient location and delivery status update live (simulated in this demo).":"ड्रोन केवल अस्पताल के डॉक्टर द्वारा अनुमोदित सामान ले जाते हैं। इस डेमो में लाइव स्थिति अनुकरण है।",
+"Preparing your delivery…":"आपकी डिलीवरी तैयार हो रही है…",
+"Doctor has authorised your order ✅":"डॉक्टर ने आपका ऑर्डर मंज़ूर किया ✅",
+"Packing your supplies carefully…":"आपका सामान सावधानी से पैक हो रहा है…",
+"Your drone is flying to you 🚁":"आपका ड्रोन आपकी ओर उड़ रहा है 🚁",
+"Almost there – please wait outdoors in a clear open space.":"लगभग पहुँच गया – कृपया खुली जगह में प्रतीक्षा करें।",
+"Delivered! Wishing you good health 💚":"पहुँच गया! आपके अच्छे स्वास्थ्य की कामना 💚",
+"Patient <b>dashboard</b>":"मरीज़ <b>डैशबोर्ड</b>",
+"Welcome back, Lakshmi 💚 – you are doing great today":"वापसी पर स्वागत है, लक्ष्मी 💚 – आज आप बहुत अच्छे हैं",
+"Overview":"सारांश","Medicines":"दवाइयाँ","Appointments":"अपॉइंटमेंट","Records & caregivers":"रिकॉर्ड और देखभालकर्ता",
+"Heart rate bpm":"हृदय गति bpm","Blood pressure":"रक्तचाप","Steps today":"आज के कदम","Sample data for demonstration.":"प्रदर्शन के लिए नमूना डेटा।",
+"Tick each medicine as you take it.":"दवा लेते ही टिक करें।",
+"Wonderful! All medicines taken today 🌿":"बहुत बढ़िया! आज की सभी दवाइयाँ ले लीं 🌿",
+"# of 3 medicines taken. Keep going!":"3 में से # दवाइयाँ ली गईं। बढ़िया चल रहे हैं!",
+"Dr. Rao · Tele-consult":"डॉ. राव · टेली-परामर्श","Tue 10:30 AM":"मंगल सुबह 10:30",
+"Blood sugar test (home visit)":"ब्लड शुगर जाँच (घर पर)","Fri 8:00 AM":"शुक्र सुबह 8:00",
+"Eye check · District Hospital":"आँखों की जाँच · जिला अस्पताल","Next month":"अगले महीने",
+"Ravi (son) · caregiver":"रवि (बेटा) · देखभालकर्ता","Can view":"देख सकते हैं",
+"Records shared only with your consent":"रिकॉर्ड केवल आपकी सहमति से साझा होते हैं","Manage":"प्रबंधित करें",
+"Government <b>scheme</b> finder":"सरकारी <b>योजना</b> खोजक",
+"A quick, preliminary check – no paperwork needed":"त्वरित प्रारंभिक जाँच – कागज़ात की ज़रूरत नहीं",
+"Age":"आयु","Family income / year (₹)":"परिवार की आय / वर्ष (₹)","Ration card":"राशन कार्ड","Yes":"हाँ","No":"नहीं",
+"Check eligibility":"पात्रता जाँचें",
+"Enter your details and tap Check.":"अपना विवरण भरें और 'पात्रता जाँचें' दबाएँ।",
+"health cover for citizens aged 70 and above.":"70 वर्ष और उससे अधिक आयु के नागरिकों के लिए स्वास्थ्य कवर।",
+"may be eligible (cover up to ₹5 lakh per family per year for eligible families).":"पात्र हो सकते हैं (पात्र परिवारों को प्रति वर्ष ₹5 लाख तक का कवर)।",
+"State health schemes":"राज्य स्वास्थ्य योजनाएँ",
+"check with your state health department (e.g. Aarogyasri, CMCHIS).":"अपने राज्य स्वास्थ्य विभाग से पूछें (जैसे Aarogyasri, CMCHIS)।",
+"Senior citizen support":"वरिष्ठ नागरिक सहायता",
+"ask your hospital about concessions and free check-ups.":"रियायतों और मुफ़्त जाँच के बारे में अपने अस्पताल से पूछें।",
+"No scheme matched. Please ask your nearest hospital or CSC about charity care and cost assistance.":"कोई योजना नहीं मिली। सहायता के लिए नज़दीकी अस्पताल या CSC से पूछें।",
+"Preliminary guide only; final eligibility is decided by the scheme authority. Please confirm at your nearest hospital or Common Service Centre.":"यह केवल प्रारंभिक मार्गदर्शन है; अंतिम पात्रता योजना प्राधिकरण तय करता है। नज़दीकी अस्पताल/CSC में पुष्टि करें।",
+"Hope, delivered. 💙":"उम्मीद, आप तक पहुँचाई। 💙",
+"GitHub repository":"GitHub रिपॉज़िटरी",
+"Built for rural communities and senior citizens":"ग्रामीण समुदायों और वरिष्ठ नागरिकों के लिए बनाया गया",
+"Prototype with simulated data – not a substitute for professional medical care.":"अनुकरण डेटा के साथ प्रोटोटाइप – पेशेवर चिकित्सा का विकल्प नहीं।",
+"Calling for emergency help. Please dial one zero eight for an ambulance, and share your location.":"आपातकालीन मदद के लिए एम्बुलेंस हेतु 108 डायल करें और अपनी लोकेशन साझा करें।",
+"Your next medicine is Vitamin D at two P M.":"आपकी अगली दवा दोपहर 2 बजे विटामिन डी है।",
+"Your drone is on its way. Please keep an open space ready.":"आपका ड्रोन आ रहा है। कृपया खुली जगह तैयार रखें।",
+"Voice input is not supported in this browser. Please try Chrome.":"इस ब्राउज़र में वॉइस इनपुट समर्थित नहीं है। कृपया Chrome आज़माएँ।"
+};
+const D={
+"7 languages":["7 భాషలు","7 மொழிகள்","7 ಭಾಷೆಗಳು","7 ഭാഷകൾ","৭টি ভাষা"],
+"Hindi, Telugu, Tamil, Kannada, Malayalam, Bengali, English.":["హిందీ, తెలుగు, తమిళం, కన్నడ, మలయాళం, బెంగాలీ, ఇంగ్లీష్.","இந்தி, தெலுங்கு, தமிழ், கன்னடம், மலையாளம், வங்காளம், ஆங்கிலம்.","ಹಿಂದಿ, ತೆಲುಗು, ತಮಿಳು, ಕನ್ನಡ, ಮಲಯಾಳಂ, ಬಂಗಾಳಿ, ಇಂಗ್ಲಿಷ್.","ഹിന്ദി, തെലുങ്ക്, തമിഴ്, കന്നഡ, മലയാളം, ബംഗാളി, ഇംഗ്ലീഷ്.","হিন্দি, তেলুগু, তামিল, কন্নড়, মালয়ালম, বাংলা, ইংরেজি।"],
+"Sunrise District Hospital · 3.2 km":["సన్‌రైజ్ జిల్లా ఆసుపత్రి · 3.2 కి.మీ","சன்ரைஸ் மாவட்ட மருத்துவமனை · 3.2 கி.மீ","ಸನ್‌ರೈಸ್ ಜಿಲ್ಲಾ ಆಸ್ಪತ್ರೆ · 3.2 ಕಿ.ಮೀ","സൺറൈസ് ജില്ലാ ആശുപത്രി · 3.2 കി.മീ","সানরাইজ জেলা হাসপাতাল · 3.2 কিমি"],
+"Rural PHC Anandapuram · 5.8 km":["గ్రామీణ పీహెచ్‌సీ ఆనందపురం · 5.8 కి.మీ","கிராமப்புற PHC ஆனந்தபுரம் · 5.8 கி.மீ","ಗ್ರಾಮೀಣ PHC ಆನಂದಪುರ · 5.8 ಕಿ.ಮೀ","ഗ്രാമീണ PHC ആനന്ദപുരം · 5.8 കി.മീ","গ্রামীণ PHC আনন্দপুর · 5.8 কিমি"],
+"Lifeline Medical Centre · 9.4 km":["లైఫ్‌లైన్ మెడికల్ సెంటర్ · 9.4 కి.మీ","லை஫்லைன் மருத்துவ மையம் · 9.4 கி.மீ","ಲೈಫ್‌ಲೈನ್ ವೈದ್ಯಕೀಯ ಕೇಂದ್ರ · 9.4 ಕಿ.ಮೀ","ലൈഫ്‌ലൈൻ മെഡിക്കൽ സെന്റർ · 9.4 കി.മീ","লাইফলাইন মেডিকেল সেন্টার · 9.4 কিমি"],
+"Sunrise District Hospital":["సన్‌రైజ్ జిల్లా ఆసుపత్రి","சன்ரைஸ் மாவட்ட மருத்துவமனை","ಸನ್‌ರೈಸ್ ಜಿಲ್ಲಾ ಆಸ್ಪತ್ರೆ","സൺറൈസ് ജില്ലാ ആശുപത്രി","সানরাইজ জেলা হাসপাতাল"],
+"Dr. Meera Rao, Sunrise District Hospital":["డా. మీరా రావు, సన్‌రైజ్ జిల్లా ఆసుపత్రి","டாக்டர் மீரா ராவ், சன்ரைஸ் மாவட்ட மருத்துவமனை","ಡಾ. ಮೀರಾ ರಾವ್, ಸನ್‌ರೈಸ್ ಜಿಲ್ಲಾ ಆಸ್ಪತ್ರೆ","ഡോ. മീര റാവു, സൺറൈസ് ജില്ലാ ആശുപത്രി","ডা. মীরা রাও, সানরাইজ জেলা হাসপাতাল"],
+"Lakshmi Devi, 68 · Anandapuram":["లక్ష్మీ దేవి, 68 · ఆనందపురం","லக்ஷ்மி தேவி, 68 · ஆனந்தபுரம்","ಲಕ್ಷ್ಮಿ ದೇವಿ, 68 · ಆನಂದಪುರ","ലക്ഷ്മി ദേവി, 68 · ആനന്ദപുരം","লক্ষ্মী দেবী, 68 · আনন্দপুর"],
+"Paracetamol 500mg ×10":["పారాసెటమాల్ 500mg ×10","பாராசிட்டமால் 500mg ×10","ಪ್ಯಾರಾಸೆಟಮಾಲ್ 500mg ×10","പാരസെറ്റമോൾ 500mg ×10","প্যারাসিটামল 500mg ×10"],
+"ORS sachets ×6":["ORS ప్యాకెట్లు ×6","ORS பாக்கெட்டுகள் ×6","ORS ಪ್ಯಾಕೆಟ್‌ಗಳು ×6","ORS പാക്കറ്റുകൾ ×6","ORS প্যাকেট ×6"],
+"8:00 AM · Amlodipine 5mg":["ఉ. 8:00 · అమ్లోడిపైన్ 5mg","காலை 8:00 · அம்லோடிபைன் 5mg","ಬೆ. 8:00 · ಅಮ್ಲೋಡಿಪೈನ್ 5mg","രാവിലെ 8:00 · അംലോഡിപിൻ 5mg","সকাল 8:00 · অ্যামলোডিপিন 5mg"],
+"2:00 PM · Vitamin D3":["మ. 2:00 · విటమిన్ D3","மதியம் 2:00 · வைட்டமின் D3","ಮಧ್ಯಾ. 2:00 · ವಿಟಮಿನ್ D3","ഉച്ചയ്ക്ക് 2:00 · വിറ്റാമിൻ D3","দুপুর 2:00 · ভিটামিন D3"],
+"9:00 PM · Metformin 500mg":["రా. 9:00 · మెట్‌ఫార్మిన్ 500mg","இரவு 9:00 · மெட்போர்மின் 500mg","ರಾ. 9:00 · ಮೆಟ್‌ಫಾರ್ಮಿನ್ 500mg","രാത്രി 9:00 · മെറ്റ്ഫോർമിൻ 500mg","রাত 9:00 · মেটফরমিন 500mg"],
+"Emergency":["అత్యవసరం","அவசரம்","ತುರ್ತು","അടിയന്തരം","জরুরি"],
+"Drone":["డ్రోన్","ட்ரோன்","ಡ್ರೋನ್","ഡ്രോൺ","ড্রোন"],
+"Dashboard":["డాష్‌బోర్డ్","டாஷ்போர்டு","ಡ್ಯಾಶ್‌ಬೋರ್ಡ್","ഡാഷ്ബോർഡ്","ড্যাশবোর্ড"],
+"Schemes":["పథకాలు","திட்டங்கள்","ಯೋಜನೆಗಳು","പദ്ധതികൾ","প্রকল্প"],
+"Care that reaches every doorstep":["ప్రతి ఇంటి ముంగిటకు వైద్యం","ஒவ்வொரு வீட்டு வாசலுக்கும் மருத்துவம்","ಪ್ರತಿ ಮನೆಬಾಗಿಲಿಗೂ ಆರೋಗ್ಯ ಸೇವೆ","ഓരോ വീട്ടുപടിക്കലും ചികിത്സ","প্রতিটি দোরগোড়ায় চিকিৎসা"],
+"Emergency connectivity, hospital-authorised drone delivery and gentle voice help – built for villages, families and our senior citizens.":["అత్యవసర సంప్రదింపు, ఆసుపత్రి అనుమతి పొందిన డ్రోన్ డెలివరీ, సులభ వాయిస్ సహాయం – గ్రామాలు, కుటుంబాలు, వృద్ధుల కోసం.","அவசரத் தொடர்பு, மருத்துவமனை அனுமதி பெற்ற ட்ரோன் விநியோகம், எளிய குரல் உதவி – கிராமங்கள், குடும்பங்கள், மூத்தோருக்காக.","ತುರ್ತು ಸಂಪರ್ಕ, ಆಸ್ಪತ್ರೆ ಅನುಮೋದಿತ ಡ್ರೋನ್ ವಿತರಣೆ, ಸುಲಭ ಧ್ವನಿ ಸಹಾಯ – ಹಳ್ಳಿಗಳು, ಕುಟುಂಬಗಳು, ಹಿರಿಯರಿಗಾಗಿ.","അടിയന്തര ബന്ധം, ആശുപത്രി അനുമതിയുള്ള ഡ്രോൺ വിതരണം, ലളിതമായ ശബ്ദ സഹായം – ഗ്രാമങ്ങൾക്കും കുടുംബങ്ങൾക്കും മുതിർന്നവർക്കും.","জরুরি যোগাযোগ, হাসপাতাল-অনুমোদিত ড্রোন ডেলিভারি, সহজ ভয়েস সহায়তা – গ্রাম, পরিবার ও প্রবীণদের জন্য।"],
+"Emergency help":["అత్యవసర సహాయం","அவசர உதவி","ತುರ್ತು ಸಹಾಯ","അടിയന്തര സഹായം","জরুরি সহায়তা"],
+"Track drone":["డ్రోన్ ట్రాక్ చేయండి","ட்ரோனைக் கண்காணிக்கவும்","ಡ್ರೋನ್ ಟ್ರ್ಯಾಕ್ ಮಾಡಿ","ഡ്രോൺ ട്രാക്ക് ചെയ്യുക","ড্রোন ট্র্যাক করুন"],
+"My dashboard":["నా డాష్‌బోర్డ్","என் டாஷ்போர்டு","ನನ್ನ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್","എന്റെ ഡാഷ്ബോർഡ്","আমার ড্যাশবোর্ড"],
+"You are not alone":["మీరు ఒంటరి కాదు","நீங்கள் தனியாக இல்லை","ನೀವು ಒಬ್ಬಂಟಿಯಲ್ಲ","നിങ്ങൾ ഒറ്റയ്ക്കല്ല","আপনি একা নন"],
+"Help is on its way":["సహాయం వస్తోంది","உதவி வந்துகொண்டிருக்கிறது","ಸಹಾಯ ಬರುತ್ತಿದೆ","സഹായം വരുന്നുണ്ട്","সাহায্য আসছে"],
+"Every life matters":["ప్రతి ప్రాణం ముఖ్యమే","ஒவ்வொரு உயிரும் முக்கியம்","ಪ್ರತಿ ಜೀವವೂ ಮುಖ್ಯ","ഓരോ ജീവനും വിലപ്പെട്ടത്","প্রতিটি প্রাণই মূল্যবান"],
+"Everything for <b>better care</b>":["<b>మెరుగైన వైద్యం</b> కోసం అన్నీ","<b>சிறந்த பராமரிப்புக்கு</b> எல்லாமே","<b>ಉತ್ತಮ ಆರೈಕೆಗೆ</b> ಎಲ್ಲವೂ","<b>മെച്ചപ്പെട്ട പരിചരണത്തിന്</b> എല്ലാം","<b>উন্নত সেবার</b> জন্য সবকিছু"],
+"Ten promises, one simple platform":["పది వాగ్దానాలు, ఒకే సులభ వేదిక","பத்து வாக்குறுதிகள், ஒரே எளிய தளம்","ಹತ್ತು ಭರವಸೆಗಳು, ಒಂದೇ ಸರಳ ವೇದಿಕೆ","പത്ത് വാഗ്ദാനങ്ങൾ, ഒരൊറ്റ ലളിത പ്ലാറ്റ്ഫോം","দশটি প্রতিশ্রুতি, একটি সহজ প্ল্যাটফর্ম"],
+"Emergency hospital connect":["అత్యవసర ఆసుపత్రి సంప్రదింపు","அவசர மருத்துவமனை தொடர்பு","ತುರ್ತು ಆಸ್ಪತ್ರೆ ಸಂಪರ್ಕ","അടിയന്തര ആശുപത്രി ബന്ധം","জরুরি হাসপাতাল সংযোগ"],
+"Direct calling and one-tap location sharing.":["నేరుగా కాల్, ఒక్క ట్యాప్‌తో లొకేషన్ షేర్.","நேரடி அழைப்பு, ஒரே தொடுதலில் இருப்பிடப் பகிர்வு.","ನೇರ ಕರೆ, ಒಂದೇ ಟ್ಯಾಪ್‌ನಲ್ಲಿ ಸ್ಥಳ ಹಂಚಿಕೆ.","നേരിട്ടുള്ള വിളി, ഒറ്റ ടാപ്പിൽ ലൊക്കേഷൻ പങ്കിടൽ.","সরাসরি কল ও এক ট্যাপে লোকেশন শেয়ার।"],
+"Ambulance assistance":["అంబులెన్స్ సహాయం","ஆம்புலன்ஸ் உதவி","ಆಂಬ್ಯುಲೆನ್ಸ್ ಸಹಾಯ","ആംബുലൻസ് സഹായം","অ্যাম্বুলেন্স সহায়তা"],
+"Coordinated emergency response.":["సమన్వయంతో అత్యవసర స్పందన.","ஒருங்கிணைந்த அவசரப் பதில்.","ಸಮನ್ವಯದ ತುರ್ತು ಪ್ರತಿಕ್ರಿಯೆ.","ഏകോപിത അടിയന്തര പ്രതികരണം.","সমন্বিত জরুরি সাড়া।"],
+"Drone delivery":["డ్రోన్ డెలివరీ","ட்ரோன் விநியோகம்","ಡ್ರೋನ್ ವಿತರಣೆ","ഡ്രോൺ വിതരണം","ড্রোন ডেলিভারি"],
+"Hospital-authorised medicines and approved first-aid supplies.":["ఆసుపత్రి అనుమతించిన మందులు, ప్రథమ చికిత్స సామగ్రి.","மருத்துவமனை அனுமதித்த மருந்துகள், முதலுதவிப் பொருட்கள்.","ಆಸ್ಪತ್ರೆ ಅನುಮೋದಿಸಿದ ಔಷಧ, ಪ್ರಥಮ ಚಿಕಿತ್ಸಾ ಸಾಮಗ್ರಿ.","ആശുപത്രി അനുമതിയുള്ള മരുന്നുകളും പ്രഥമശുശ്രൂഷാ സാമഗ്രികളും.","হাসপাতাল-অনুমোদিত ওষুধ ও প্রাথমিক চিকিৎসা সামগ্রী।"],
+"Live tracking":["లైవ్ ట్రాకింగ్","நேரலை கண்காணிப்பு","ಲೈವ್ ಟ್ರ್ಯಾಕಿಂಗ್","തത്സമയ ട്രാക്കിംഗ്","লাইভ ট্র্যাকিং"],
+"Follow your patient and your delivery in real time.":["రోగిని, డెలివరీని రియల్ టైమ్‌లో అనుసరించండి.","நோயாளியையும் விநியோகத்தையும் உடனுக்குடன் பின்தொடருங்கள்.","ರೋಗಿ ಮತ್ತು ವಿತರಣೆಯನ್ನು ನೈಜ ಸಮಯದಲ್ಲಿ ಅನುಸರಿಸಿ.","രോഗിയെയും വിതരണത്തെയും തത്സമയം പിന്തുടരാം.","রোগী ও ডেলিভারি রিয়েল টাইমে অনুসরণ করুন।"],
+"6 languages":["6 భాషలు","6 மொழிகள்","6 ಭಾಷೆಗಳು","6 ഭാഷകൾ","৬টি ভাষা"],
+"Telugu, Tamil, Kannada, Malayalam, Bengali, English.":["తెలుగు, తమిళం, కన్నడ, మలయాళం, బెంగాలీ, ఇంగ్లీష్.","தெலுங்கு, தமிழ், கன்னடம், மலையாளம், வங்காளம், ஆங்கிலம்.","ತೆಲುಗು, ತಮಿಳು, ಕನ್ನಡ, ಮಲಯಾಳಂ, ಬಂಗಾಳಿ, ಇಂಗ್ಲಿಷ್.","തെലുങ്ക്, തമിഴ്, കന്നഡ, മലയാളം, ബംഗാളി, ഇംഗ്ലീഷ്.","তেলুগু, তামিল, কন্নড়, মালয়ালম, বাংলা, ইংরেজি।"],
+"Voice assistant":["వాయిస్ అసిస్టెంట్","குரல் உதவியாளர்","ಧ್ವನಿ ಸಹಾಯಕ","ശബ്ദ സഹായി","ভয়েস সহকারী"],
+"Speak, and HealWell answers – made for seniors.":["మాట్లాడండి, HealWell సమాధానమిస్తుంది – వృద్ధుల కోసం.","பேசுங்கள், HealWell பதிலளிக்கும் – மூத்தோருக்காக.","ಮಾತನಾಡಿ, HealWell ಉತ್ತರಿಸುತ್ತದೆ – ಹಿರಿಯರಿಗಾಗಿ.","സംസാരിക്കൂ, HealWell ഉത്തരം നൽകും – മുതിർന്നവർക്കായി.","বলুন, HealWell উত্তর দেবে – প্রবীণদের জন্য।"],
+"Scheme discovery":["పథకాల అన్వేషణ","திட்டங்களைக் கண்டறிதல்","ಯೋಜನೆ ಹುಡುಕಾಟ","പദ്ധതി കണ്ടെത്തൽ","প্রকল্প খুঁজুন"],
+"Find government schemes and check preliminary eligibility.":["ప్రభుత్వ పథకాలను కనుగొని ప్రాథమిక అర్హత తెలుసుకోండి.","அரசுத் திட்டங்களைக் கண்டு தகுதியை முன்னோட்டமாகப் பாருங்கள்.","ಸರ್ಕಾರಿ ಯೋಜನೆಗಳನ್ನು ಹುಡುಕಿ, ಪ್ರಾಥಮಿಕ ಅರ್ಹತೆ ತಿಳಿಯಿರಿ.","സർക്കാർ പദ്ധതികൾ കണ്ടെത്തി പ്രാഥമിക യോഗ്യത പരിശോധിക്കാം.","সরকারি প্রকল্প খুঁজে প্রাথমিক যোগ্যতা যাচাই করুন।"],
+"Cost assistance":["ఖర్చుల సహాయం","செலவு உதவி","ವೆಚ್ಚ ಸಹಾಯ","ചെലവ് സഹായം","খরচে সহায়তা"],
+"Clear information on help with healthcare costs.":["వైద్య ఖర్చులకు సహాయంపై స్పష్టమైన సమాచారం.","மருத்துவச் செலவு உதவி குறித்த தெளிவான தகவல்.","ಆರೋಗ್ಯ ವೆಚ್ಚ ಸಹಾಯದ ಸ್ಪಷ್ಟ ಮಾಹಿತಿ.","ചികിത്സാ ചെലവ് സഹായത്തെക്കുറിച്ചുള്ള വ്യക്തമായ വിവരം.","চিকিৎসা খরচে সহায়তার স্পষ্ট তথ্য।"],
+"Caregiver connect":["సంరక్షకుల అనుసంధానం","பராமரிப்பாளர் இணைப்பு","ಆರೈಕೆದಾರರ ಸಂಪರ್ಕ","പരിചാരക ബന്ധം","পরিচর্যাকারী সংযোগ"],
+"Hospitals, doctors and family on one page.":["ఆసుపత్రులు, వైద్యులు, కుటుంబం – ఒకేచోట.","மருத்துவமனைகள், மருத்துவர்கள், குடும்பம் – ஒரே இடத்தில்.","ಆಸ್ಪತ್ರೆ, ವೈದ್ಯರು, ಕುಟುಂಬ – ಒಂದೇ ಪುಟದಲ್ಲಿ.","ആശുപത്രികൾ, ഡോക്ടർമാർ, കുടുംബം – ഒരിടത്ത്.","হাসপাতাল, ডাক্তার ও পরিবার – এক পাতায়।"],
+"Secure records":["సురక్షిత రికార్డులు","பாதுகாப்பான பதிவுகள்","ಸುರಕ್ಷಿತ ದಾಖಲೆಗಳು","സുരക്ഷിത രേഖകൾ","নিরাপদ রেকর্ড"],
+"Consent-based patient information management.":["అనుమతి ఆధారిత రోగి సమాచార నిర్వహణ.","ஒப்புதல் அடிப்படையிலான நோயாளி தகவல் மேலாண்மை.","ಒಪ್ಪಿಗೆ ಆಧಾರಿತ ರೋಗಿ ಮಾಹಿತಿ ನಿರ್ವಹಣೆ.","സമ്മതത്തോടെയുള്ള രോഗി വിവര നിയന്ത്രണം.","সম্মতি-ভিত্তিক রোগীর তথ্য ব্যবস্থাপনা।"],
+"<b>Emergency</b> centre":["<b>అత్యవసర</b> కేంద్రం","<b>அவசர</b> மையம்","<b>ತುರ್ತು</b> ಕೇಂದ್ರ","<b>അടിയന്തര</b> കേന്ദ്രം","<b>জরুরি</b> কেন্দ্র"],
+"Stay calm. Tap, and help begins.":["ప్రశాంతంగా ఉండండి. నొక్కండి, సహాయం మొదలవుతుంది.","அமைதியாக இருங்கள். தொடுங்கள், உதவி தொடங்கும்.","ಶಾಂತರಾಗಿರಿ. ಒತ್ತಿ, ಸಹಾಯ ಆರಂಭವಾಗುತ್ತದೆ.","ശാന്തരായിരിക്കൂ. അമർത്തൂ, സഹായം തുടങ്ങും.","শান্ত থাকুন। ট্যাপ করুন, সাহায্য শুরু হবে।"],
+"Get help now":["ఇప్పుడే సహాయం పొందండి","இப்போதே உதவி பெறுங்கள்","ಈಗಲೇ ಸಹಾಯ ಪಡೆಯಿರಿ","ഇപ്പോൾ സഹായം തേടുക","এখনই সাহায্য নিন"],
+"Call ambulance 108":["అంబులెన్స్‌కు కాల్ 108","ஆம்புலன்ஸ் அழைப்பு 108","ಆಂಬ್ಯುಲೆನ್ಸ್ ಕರೆ 108","ആംബുലൻസ് വിളിക്കുക 108","অ্যাম্বুলেন্স কল 108"],
+"Emergency 112":["అత్యవసరం 112","அவசரம் 112","ತುರ್ತು 112","അടിയന്തരം 112","জরুরি 112"],
+"Share my location":["నా లొకేషన్ షేర్ చేయండి","என் இருப்பிடத்தைப் பகிர்","ನನ್ನ ಸ್ಥಳ ಹಂಚಿ","എന്റെ ലൊക്കേഷൻ പങ്കിടുക","আমার লোকেশন শেয়ার করুন"],
+"Your location link will appear here, ready to send to family or the hospital.":["మీ లొకేషన్ లింక్ ఇక్కడ కనిపిస్తుంది; కుటుంబానికి లేదా ఆసుపత్రికి పంపండి.","உங்கள் இருப்பிட இணைப்பு இங்கே தோன்றும்; குடும்பத்துக்கோ மருத்துவமனைக்கோ அனுப்பலாம்.","ನಿಮ್ಮ ಸ್ಥಳ ಲಿಂಕ್ ಇಲ್ಲಿ ಕಾಣುತ್ತದೆ; ಕುಟುಂಬ ಅಥವಾ ಆಸ್ಪತ್ರೆಗೆ ಕಳುಹಿಸಿ.","നിങ്ങളുടെ ലൊക്കേഷൻ ലിങ്ക് ഇവിടെ കാണും; കുടുംബത്തിനോ ആശുപത്രിക്കോ അയയ്ക്കാം.","আপনার লোকেশন লিংক এখানে দেখা যাবে; পরিবার বা হাসপাতালে পাঠান।"],
+"Calls use your phone dialler. If life is in danger, call 108 / 112 immediately.":["కాల్స్ మీ ఫోన్ డయలర్ ఉపయోగిస్తాయి. ప్రాణాపాయం ఉంటే వెంటనే 108 / 112 కు కాల్ చేయండి.","அழைப்புகள் உங்கள் தொலைபேசி டயலரைப் பயன்படுத்தும். உயிருக்கு ஆபத்தெனில் உடனே 108 / 112 ஐ அழைக்கவும்.","ಕರೆಗಳು ನಿಮ್ಮ ಫೋನ್ ಡಯಲರ್ ಬಳಸುತ್ತವೆ. ಜೀವಕ್ಕೆ ಅಪಾಯವಿದ್ದರೆ ತಕ್ಷಣ 108 / 112 ಗೆ ಕರೆ ಮಾಡಿ.","വിളികൾ നിങ്ങളുടെ ഫോൺ ഡയലർ ഉപയോഗിക്കും. ജീവന് അപകടമുണ്ടെങ്കിൽ ഉടൻ 108 / 112 വിളിക്കുക.","কল আপনার ফোনের ডায়ালার ব্যবহার করে। প্রাণের ঝুঁকি থাকলে এখনই 108 / 112 এ কল করুন।"],
+"Emergency circular to nearby hospitals":["సమీప ఆసుపత్రులకు అత్యవసర సర్క్యులర్","அருகிலுள்ள மருத்துவமனைகளுக்கு அவசரச் சுற்றறிக்கை","ಹತ್ತಿರದ ಆಸ್ಪತ್ರೆಗಳಿಗೆ ತುರ್ತು ಸುತ್ತೋಲೆ","സമീപ ആശുപത്രികൾക്ക് അടിയന്തര സർക്കുലർ","কাছের হাসপাতালে জরুরি বিজ্ঞপ্তি"],
+"Send alert circular":["అలర్ట్ సర్క్యులర్ పంపండి","எச்சரிக்கைச் சுற்றறிக்கை அனுப்பு","ಎಚ್ಚರಿಕೆ ಸುತ್ತೋಲೆ ಕಳುಹಿಸಿ","അലർട്ട് സർക്കുലർ അയയ്ക്കുക","সতর্কবার্তা পাঠান"],
+"Demo: sample hospitals and simulated responses.":["డెమో: నమూనా ఆసుపత్రులు, అనుకరణ స్పందనలు.","டெமோ: மாதிரி மருத்துவமனைகள், உருவகப் பதில்கள்.","ಡೆಮೊ: ಮಾದರಿ ಆಸ್ಪತ್ರೆಗಳು, ಅನುಕರಣ ಪ್ರತಿಕ್ರಿಯೆಗಳು.","ഡെമോ: മാതൃകാ ആശുപത്രികളും അനുകരിച്ച പ്രതികരണങ്ങളും.","ডেমো: নমুনা হাসপাতাল ও অনুকরণ করা সাড়া।"],
+"Ready":["సిద్ధం","தயார்","ಸಿದ್ಧ","തയ്യാർ","প্রস্তুত"],
+"Sending…":["పంపుతోంది…","அனுப்புகிறது…","ಕಳುಹಿಸುತ್ತಿದೆ…","അയയ്ക്കുന്നു…","পাঠানো হচ্ছে…"],
+"Ambulance ready":["అంబులెన్స్ సిద్ధం","ஆம்புலன்ஸ் தயார்","ಆಂಬ್ಯುಲೆನ್ಸ್ ಸಿದ್ಧ","ആംബുലൻസ് തയ്യാർ","অ্যাম্বুলেন্স প্রস্তুত"],
+"Doctor alerted":["వైద్యునికి తెలిపాం","மருத்துவருக்குத் தெரிவிக்கப்பட்டது","ವೈದ್ಯರಿಗೆ ತಿಳಿಸಲಾಗಿದೆ","ഡോക്ടറെ അറിയിച്ചു","ডাক্তারকে জানানো হয়েছে"],
+"Beds available":["పడకలు ఉన్నాయి","படுக்கைகள் உள்ளன","ಹಾಸಿಗೆ ಲಭ್ಯ","കിടക്കകൾ ലഭ്യം","শয্যা আছে"],
+"Finding you…":["మిమ్మల్ని గుర్తిస్తోంది…","உங்களைத் தேடுகிறது…","ನಿಮ್ಮನ್ನು ಹುಡುಕುತ್ತಿದೆ…","നിങ്ങളെ കണ്ടെത്തുന്നു…","আপনাকে খোঁজা হচ্ছে…"],
+"Location ready:":["లొకేషన్ సిద్ధం:","இருப்பிடம் தயார்:","ಸ್ಥಳ ಸಿದ್ಧ:","ലൊക്കേഷൻ തയ്യാർ:","লোকেশন প্রস্তুত:"],
+"Send by SMS":["SMS ద్వారా పంపండి","SMS மூலம் அனுப்பு","SMS ಮೂಲಕ ಕಳುಹಿಸಿ","SMS വഴി അയയ്ക്കുക","SMS-এ পাঠান"],
+"Location is not available on this device.":["ఈ పరికరంలో లొకేషన్ అందుబాటులో లేదు.","இந்தச் சாதனத்தில் இருப்பிடம் கிடைக்கவில்லை.","ಈ ಸಾಧನದಲ್ಲಿ ಸ್ಥಳ ಲಭ್ಯವಿಲ್ಲ.","ഈ ഉപകരണത്തിൽ ലൊക്കേഷൻ ലഭ്യമല്ല.","এই ডিভাইসে লোকেশন পাওয়া যাচ্ছে না।"],
+"Please allow location access, or call 108 / 112 now.":["దయచేసి లొకేషన్ అనుమతించండి, లేదా ఇప్పుడే 108 / 112 కు కాల్ చేయండి.","இருப்பிட அணுகலை அனுமதியுங்கள், அல்லது இப்போதே 108 / 112 ஐ அழைக்கவும்.","ಸ್ಥಳ ಪ್ರವೇಶಕ್ಕೆ ಅನುಮತಿಸಿ, ಅಥವಾ ಈಗಲೇ 108 / 112 ಗೆ ಕರೆ ಮಾಡಿ.","ലൊക്കേഷൻ അനുവദിക്കുക, അല്ലെങ്കിൽ ഇപ്പോൾ 108 / 112 വിളിക്കുക.","লোকেশন অনুমতি দিন, অথবা এখনই 108 / 112 এ কল করুন।"],
+"Live <b>drone</b> tracking":["లైవ్ <b>డ్రోన్</b> ట్రాకింగ్","நேரலை <b>ட்ரோன்</b> கண்காணிப்பு","ಲೈವ್ <b>ಡ್ರೋನ್</b> ಟ್ರ್ಯಾಕಿಂಗ್","തത്സമയ <b>ഡ്രോൺ</b> ട്രാക്കിംഗ്","লাইভ <b>ড্রোন</b> ট্র্যাকিং"],
+"Hospital-authorised delivery of medicines and approved first-aid supplies":["ఆసుపత్రి అనుమతించిన మందులు, ప్రథమ చికిత్స సామగ్రి డెలివరీ","மருத்துவமனை அனுமதித்த மருந்துகள், முதலுதவிப் பொருட்களின் விநியோகம்","ಆಸ್ಪತ್ರೆ ಅನುಮೋದಿಸಿದ ಔಷಧ, ಪ್ರಥಮ ಚಿಕಿತ್ಸಾ ಸಾಮಗ್ರಿ ವಿತರಣೆ","ആശുപത്രി അനുമതിയുള്ള മരുന്നുകളുടെയും പ്രഥമശുശ്രൂഷാ സാമഗ്രികളുടെയും വിതരണം","হাসপাতাল-অনুমোদিত ওষুধ ও প্রাথমিক চিকিৎসা সামগ্রীর ডেলিভারি"],
+"Approved":["ఆమోదం","அனுமதி","ಅನುಮೋದನೆ","അനുമതി","অনুমোদিত"],
+"Packed":["ప్యాక్","பேக்கிங்","ಪ್ಯಾಕ್","പാക്ക്","প্যাক"],
+"In flight":["ప్రయాణంలో","பறக்கிறது","ಹಾರಾಟದಲ್ಲಿ","പറക്കുന്നു","উড়ছে"],
+"Arriving":["చేరుతోంది","வந்துகொண்டிருக்கிறது","ತಲುಪುತ್ತಿದೆ","എത്തുന്നു","পৌঁছাচ্ছে"],
+"Delivered":["అందింది","வழங்கப்பட்டது","ತಲುಪಿಸಲಾಗಿದೆ","എത്തിച്ചു","পৌঁছেছে"],
+"ETA":["చేరే సమయం","வரும் நேரம்","ತಲುಪುವ ಸಮಯ","എത്തുന്ന സമയം","পৌঁছানোর সময়"],
+"Distance":["దూరం","தூரம்","ದೂರ","ദൂരം","দূরত্ব"],
+"Speed":["వేగం","வேகம்","ವೇಗ","വേഗത","গতি"],
+"Restart demo":["డెమో మళ్లీ","டெமோ மீண்டும்","ಡೆಮೊ ಮರುಪ್ರಾರಂಭ","ഡെമോ വീണ്ടും","ডেমো আবার"],
+"Arrived":["చేరింది","வந்துவிட்டது","ತಲುಪಿದೆ","എത്തി","পৌঁছেছে"],
+"Order #HW-2048":["ఆర్డర్ #HW-2048","ஆர்டர் #HW-2048","ಆರ್ಡರ್ #HW-2048","ഓർഡർ #HW-2048","অর্ডার #HW-2048"],
+"First-aid kit (basic)":["ప్రథమ చికిత్స కిట్ (ప్రాథమిక)","முதலுதவிப் பெட்டி (அடிப்படை)","ಪ್ರಥಮ ಚಿಕಿತ್ಸಾ ಕಿಟ್ (ಮೂಲ)","പ്രഥമശുശ്രൂഷാ കിറ്റ് (അടിസ്ഥാന)","প্রাথমিক চিকিৎসা কিট (বেসিক)"],
+"Authorised":["అనుమతి","அனுமதிக்கப்பட்டது","ಅನುಮೋದಿತ","അനുവദിച്ചത്","অনুমোদিত"],
+"Authorised by:":["అనుమతించినవారు:","அனுமதித்தவர்:","ಅನುಮೋದಿಸಿದವರು:","അനുവദിച്ചത്:","অনুমোদনকারী:"],
+"Patient:":["రోగి:","நோயாளி:","ರೋಗಿ:","രോഗി:","রোগী:"],
+"Drones carry only items approved by a hospital doctor. Patient location and delivery status update live (simulated in this demo).":["ఆసుపత్రి వైద్యుడు ఆమోదించిన వస్తువులను మాత్రమే డ్రోన్లు తీసుకెళ్తాయి. ఈ డెమోలో లైవ్ స్థితి అనుకరణ.","மருத்துவமனை மருத்துவர் அனுமதித்த பொருட்களை மட்டுமே ட்ரோன்கள் கொண்டு செல்லும். இந்த டெமோவில் நிலை உருவகம்.","ಆಸ್ಪತ್ರೆ ವೈದ್ಯರು ಅನುಮೋದಿಸಿದ ವಸ್ತುಗಳನ್ನು ಮಾತ್ರ ಡ್ರೋನ್ ಒಯ್ಯುತ್ತದೆ. ಈ ಡೆಮೊದಲ್ಲಿ ಸ್ಥಿತಿ ಅನುಕರಣೆ.","ആശുപത്രി ഡോക്ടർ അനുമതി നൽകിയവ മാത്രമേ ഡ്രോൺ കൊണ്ടുപോകൂ. ഈ ഡെമോയിൽ തത്സമയ നില അനുകരണമാണ്.","হাসপাতালের ডাক্তার অনুমোদিত জিনিসই শুধু ড্রোন বহন করে। এই ডেমোতে লাইভ অবস্থা অনুকরণ।"],
+"Preparing your delivery…":["మీ డెలివరీని సిద్ధం చేస్తున్నాం…","உங்கள் விநியோகம் தயாராகிறது…","ನಿಮ್ಮ ವಿತರಣೆ ಸಿದ್ಧವಾಗುತ್ತಿದೆ…","നിങ്ങളുടെ ഡെലിവറി ഒരുങ്ങുന്നു…","আপনার ডেলিভারি প্রস্তুত হচ্ছে…"],
+"Doctor has authorised your order ✅":["వైద్యుడు మీ ఆర్డర్‌ను ఆమోదించారు ✅","மருத்துவர் உங்கள் ஆர்டரை அனுமதித்தார் ✅","ವೈದ್ಯರು ನಿಮ್ಮ ಆರ್ಡರ್ ಅನ್ನು ಅನುಮೋದಿಸಿದ್ದಾರೆ ✅","ഡോക്ടർ നിങ്ങളുടെ ഓർഡർ അനുവദിച്ചു ✅","ডাক্তার আপনার অর্ডার অনুমোদন করেছেন ✅"],
+"Packing your supplies carefully…":["మీ సామగ్రిని జాగ్రత్తగా ప్యాక్ చేస్తున్నాం…","உங்கள் பொருட்களைக் கவனமாகப் பேக் செய்கிறோம்…","ನಿಮ್ಮ ಸಾಮಗ್ರಿಯನ್ನು ಎಚ್ಚರಿಕೆಯಿಂದ ಪ್ಯಾಕ್ ಮಾಡುತ್ತಿದ್ದೇವೆ…","നിങ്ങളുടെ സാമഗ്രികൾ ശ്രദ്ധയോടെ പാക്ക് ചെയ്യുന്നു…","আপনার সামগ্রী যত্নে প্যাক করা হচ্ছে…"],
+"Your drone is flying to you 🚁":["మీ డ్రోన్ మీ వైపు ఎగురుతోంది 🚁","உங்கள் ட்ரோன் உங்களை நோக்கிப் பறக்கிறது 🚁","ನಿಮ್ಮ ಡ್ರೋನ್ ನಿಮ್ಮತ್ತ ಹಾರುತ್ತಿದೆ 🚁","നിങ്ങളുടെ ഡ്രോൺ നിങ്ങളുടെ അടുത്തേക്ക് പറക്കുന്നു 🚁","আপনার ড্রোন আপনার দিকে উড়ছে 🚁"],
+"Almost there – please wait outdoors in a clear open space.":["దాదాపు వచ్చేసింది – ఖాళీ బయటి స్థలంలో వేచి ఉండండి.","கிட்டத்தட்ட வந்துவிட்டது – திறந்தவெளியில் காத்திருங்கள்.","ಬಹುತೇಕ ಬಂದಿದೆ – ಖಾಲಿ ಹೊರಾಂಗಣದಲ್ಲಿ ಕಾಯಿರಿ.","ഏതാണ്ട് എത്തി – തുറന്ന സ്ഥലത്ത് കാത്തിരിക്കൂ.","প্রায় পৌঁছে গেছে – খোলা জায়গায় অপেক্ষা করুন।"],
+"Delivered! Wishing you good health 💚":["అందింది! మీకు ఆరోగ్యం కలగాలి 💚","வந்துசேர்ந்தது! நலமுடன் இருங்கள் 💚","ತಲುಪಿದೆ! ನಿಮಗೆ ಆರೋಗ್ಯ ಸಿಗಲಿ 💚","എത്തിച്ചു! നിങ്ങൾക്ക് ആരോഗ്യം നേരുന്നു 💚","পৌঁছেছে! আপনার সুস্বাস্থ্য কামনা করি 💚"],
+"Patient <b>dashboard</b>":["రోగి <b>డాష్‌బోర్డ్</b>","நோயாளி <b>டாஷ்போர்டு</b>","ರೋಗಿ <b>ಡ್ಯಾಶ್‌ಬೋರ್ಡ್</b>","രോഗി <b>ഡാഷ്ബോർഡ്</b>","রোগীর <b>ড্যাশবোর্ড</b>"],
+"Welcome back, Lakshmi 💚 – you are doing great today":["మళ్లీ స్వాగతం, లక్ష్మీ 💚 – ఈ రోజు మీరు బాగా చేస్తున్నారు","மீண்டும் வருக, லக்ஷ்மி 💚 – இன்று நன்றாக இருக்கிறீர்கள்","ಮತ್ತೆ ಸ್ವಾಗತ, ಲಕ್ಷ್ಮಿ 💚 – ಇಂದು ನೀವು ಚೆನ್ನಾಗಿದ್ದೀರಿ","വീണ്ടും സ്വാഗതം, ലക്ഷ്മി 💚 – ഇന്ന് നിങ്ങൾ നന്നായിരിക്കുന്നു","আবার স্বাগতম, লক্ষ্মী 💚 – আজ আপনি দারুণ আছেন"],
+"Overview":["అవలోకనం","மேலோட்டம்","ಸಾರಾಂಶ","അവലോകനം","সারসংক্ষেপ"],
+"Medicines":["మందులు","மருந்துகள்","ಔಷಧಗಳು","മരുന്നുകൾ","ওষুধ"],
+"Appointments":["అపాయింట్‌మెంట్లు","சந்திப்புகள்","ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್‌ಗಳು","അപ്പോയിന്റ്മെന്റുകൾ","অ্যাপয়েন্টমেন্ট"],
+"Records & caregivers":["రికార్డులు, సంరక్షకులు","பதிவுகள் & பராமரிப்பாளர்கள்","ದಾಖಲೆ ಮತ್ತು ಆರೈಕೆದಾರರು","രേഖകളും പരിചാരകരും","রেকর্ড ও পরিচর্যাকারী"],
+"Heart rate bpm":["హృదయ స్పందన bpm","இதயத் துடிப்பு bpm","ಹೃದಯ ಬಡಿತ bpm","ഹൃദയമിടിപ്പ് bpm","হৃদস্পন্দন bpm"],
+"Blood pressure":["రక్తపోటు","இரத்த அழுத்தம்","ರಕ್ತದೊತ್ತಡ","രക്തസമ്മർദ്ദം","রক্তচাপ"],
+"Steps today":["నేటి అడుగులు","இன்றைய படிகள்","ಇಂದಿನ ಹೆಜ್ಜೆಗಳು","ഇന്നത്തെ ചുവടുകൾ","আজকের পদক্ষেপ"],
+"Sample data for demonstration.":["నమూనా డేటా.","மாதிரித் தரவு.","ಮಾದರಿ ಡೇಟಾ.","മാതൃകാ ഡാറ്റ.","নমুনা তথ্য।"],
+"Tick each medicine as you take it.":["మందు వేసుకున్నప్పుడల్లా టిక్ చేయండి.","மருந்து எடுத்ததும் டிக் செய்யுங்கள்.","ಔಷಧ ತೆಗೆದುಕೊಂಡಾಗ ಟಿಕ್ ಮಾಡಿ.","മരുന്ന് കഴിക്കുമ്പോൾ ടിക്ക് ചെയ്യൂ.","ওষুধ খেলে টিক দিন।"],
+"Wonderful! All medicines taken today 🌿":["అద్భుతం! ఈ రోజు మందులన్నీ తీసుకున్నారు 🌿","அருமை! இன்றைய மருந்துகள் அனைத்தும் எடுத்தீர்கள் 🌿","ಅದ್ಭುತ! ಇಂದಿನ ಎಲ್ಲಾ ಔಷಧ ತೆಗೆದುಕೊಂಡಿದ್ದೀರಿ 🌿","ഗംഭീരം! ഇന്നത്തെ എല്ലാ മരുന്നും കഴിച്ചു 🌿","চমৎকার! আজকের সব ওষুধ খেয়েছেন 🌿"],
+"# of 3 medicines taken. Keep going!":["3 లో # మందులు తీసుకున్నారు. కొనసాగించండి!","3 இல் # மருந்துகள் எடுத்தீர்கள். தொடருங்கள்!","3 ರಲ್ಲಿ # ಔಷಧ ತೆಗೆದುಕೊಂಡಿದ್ದೀರಿ. ಮುಂದುವರಿಸಿ!","3 ൽ # മരുന്ന് കഴിച്ചു. തുടരൂ!","3টির মধ্যে #টি ওষুধ খেয়েছেন। চালিয়ে যান!"],
+"Dr. Rao · Tele-consult":["డా. రావు · టెలి-కన్సల్ట్","டாக்டர் ராவ் · டெலி-ஆலோசனை","ಡಾ. ರಾವ್ · ಟೆಲಿ-ಸಮಾಲೋಚನೆ","ഡോ. റാവു · ടെലി-കൺസൾട്ട്","ডা. রাও · টেলি-পরামর্শ"],
+"Tue 10:30 AM":["మంగళ ఉ. 10:30","செவ். காலை 10:30","ಮಂಗಳ ಬೆ. 10:30","ചൊവ്വ രാവിലെ 10:30","মঙ্গল সকাল 10:30"],
+"Blood sugar test (home visit)":["రక్తంలో చక్కెర పరీక్ష (ఇంటికి వచ్చి)","இரத்த சர்க்கரை பரிசோதனை (வீட்டில்)","ರಕ್ತದ ಸಕ್ಕರೆ ಪರೀಕ್ಷೆ (ಮನೆಗೆ ಭೇಟಿ)","രക്തത്തിലെ പഞ്ചസാര പരിശോധന (വീട്ടിൽ)","রক্তে শর্করা পরীক্ষা (বাড়িতে)"],
+"Fri 8:00 AM":["శుక్ర ఉ. 8:00","வெள்ளி காலை 8:00","ಶುಕ್ರ ಬೆ. 8:00","വെള്ളി രാവിലെ 8:00","শুক্র সকাল 8:00"],
+"Eye check · District Hospital":["కంటి పరీక్ష · జిల్లా ఆసుపత్రి","கண் பரிசோதனை · மாவட்ட மருத்துவமனை","ಕಣ್ಣಿನ ಪರೀಕ್ಷೆ · ಜಿಲ್ಲಾ ಆಸ್ಪತ್ರೆ","നേത്ര പരിശോധന · ജില്ലാ ആശുപത്രി","চোখ পরীক্ষা · জেলা হাসপাতাল"],
+"Next month":["వచ్చే నెల","அடுத்த மாதம்","ಮುಂದಿನ ತಿಂಗಳು","അടുത്ത മാസം","আগামী মাস"],
+"Ravi (son) · caregiver":["రవి (కొడుకు) · సంరక్షకుడు","ரவி (மகன்) · பராமரிப்பாளர்","ರವಿ (ಮಗ) · ಆರೈಕೆದಾರ","രവി (മകൻ) · പരിചാരകൻ","রবি (ছেলে) · পরিচর্যাকারী"],
+"Can view":["చూడగలరు","பார்க்கலாம்","ನೋಡಬಹುದು","കാണാം","দেখতে পারেন"],
+"Records shared only with your consent":["మీ అనుమతితో మాత్రమే రికార్డులు పంచబడతాయి","உங்கள் ஒப்புதலுடன் மட்டுமே பதிவுகள் பகிரப்படும்","ನಿಮ್ಮ ಒಪ್ಪಿಗೆಯೊಂದಿಗೆ ಮಾತ್ರ ದಾಖಲೆ ಹಂಚಿಕೆ","നിങ്ങളുടെ സമ്മതത്തോടെ മാത്രം രേഖകൾ പങ്കിടും","শুধু আপনার সম্মতিতে রেকর্ড শেয়ার হয়"],
+"Manage":["నిర్వహించండి","நிர்வகி","ನಿರ್ವಹಿಸಿ","നിയന്ത്രിക്കുക","পরিচালনা"],
+"Government <b>scheme</b> finder":["ప్రభుత్వ <b>పథకాల</b> అన్వేషి","அரசு <b>திட்ட</b> தேடல்","ಸರ್ಕಾರಿ <b>ಯೋಜನೆ</b> ಹುಡುಕಾಟ","സർക്കാർ <b>പദ്ധതി</b> അന്വേഷണം","সরকারি <b>প্রকল্প</b> অনুসন্ধান"],
+"A quick, preliminary check – no paperwork needed":["త్వరిత ప్రాథమిక పరిశీలన – కాగితాలు అవసరం లేదు","விரைவான முன்னோட்டச் சோதனை – ஆவணங்கள் தேவையில்லை","ತ್ವರಿತ ಪ್ರಾಥಮಿಕ ಪರಿಶೀಲನೆ – ದಾಖಲೆ ಬೇಕಿಲ್ಲ","വേഗത്തിലുള്ള പ്രാഥമിക പരിശോധന – കടലാസ് വേണ്ട","দ্রুত প্রাথমিক যাচাই – কাগজপত্র লাগবে না"],
+"Age":["వయస్సు","வயது","ವಯಸ್ಸು","പ്രായം","বয়স"],
+"Family income / year (₹)":["కుటుంబ ఆదాయం / సంవత్సరం (₹)","குடும்ப வருமானம் / ஆண்டு (₹)","ಕುಟುಂಬ ಆದಾಯ / ವರ್ಷ (₹)","കുടുംബ വരുമാനം / വർഷം (₹)","পরিবারের আয় / বছর (₹)"],
+"Ration card":["రేషన్ కార్డు","ரேஷன் அட்டை","ಪಡಿತರ ಚೀಟಿ","റേഷൻ കാർഡ്","রেশন কার্ড"],
+"Yes":["అవును","ஆம்","ಹೌದು","അതെ","হ্যাঁ"],
+"No":["కాదు","இல்லை","ಇಲ್ಲ","ഇല്ല","না"],
+"Check eligibility":["అర్హత చూడండి","தகுதியைச் சரிபார்","ಅರ್ಹತೆ ಪರಿಶೀಲಿಸಿ","യോഗ്യത പരിശോധിക്കുക","যোগ্যতা যাচাই করুন"],
+"Enter your details and tap Check.":["మీ వివరాలు ఇచ్చి 'అర్హత చూడండి' నొక్కండి.","விவரங்களை உள்ளிட்டு 'தகுதியைச் சரிபார்' தொடவும்.","ವಿವರ ನಮೂದಿಸಿ, 'ಅರ್ಹತೆ ಪರಿಶೀಲಿಸಿ' ಒತ್ತಿ.","വിവരങ്ങൾ നൽകി 'യോഗ്യത പരിശോധിക്കുക' അമർത്തൂ.","বিবরণ দিয়ে 'যোগ্যতা যাচাই করুন' চাপুন।"],
+"health cover for citizens aged 70 and above.":["70 ఏళ్లు పైబడిన వారికి ఆరోగ్య బీమా.","70 வயதும் அதற்கு மேலுமான குடிமக்களுக்கு மருத்துவக் காப்பீடு.","70 ವರ್ಷ ಮೇಲ್ಪಟ್ಟವರಿಗೆ ಆರೋಗ್ಯ ರಕ್ಷಣೆ.","70 വയസ്സും അതിനു മുകളിലുമുള്ളവർക്ക് ആരോഗ്യ പരിരക്ഷ.","70 বা তার বেশি বয়সীদের জন্য স্বাস্থ্য বীমা।"],
+"may be eligible (cover up to ₹5 lakh per family per year for eligible families).":["అర్హులు కావచ్చు (అర్హ కుటుంబాలకు ఏడాదికి ₹5 లక్షల వరకు కవరేజీ).","தகுதி இருக்கலாம் (தகுதியான குடும்பங்களுக்கு ஆண்டுக்கு ₹5 லட்சம் வரை காப்பீடு).","ಅರ್ಹರಾಗಿರಬಹುದು (ಅರ್ಹ ಕುಟುಂಬಗಳಿಗೆ ವರ್ಷಕ್ಕೆ ₹5 ಲಕ್ಷದವರೆಗೆ ರಕ್ಷಣೆ).","യോഗ്യത ഉണ്ടാകാം (യോഗ്യ കുടുംബങ്ങൾക്ക് വർഷം ₹5 ലക്ഷം വരെ പരിരക്ഷ).","যোগ্য হতে পারেন (যোগ্য পরিবারের জন্য বছরে ₹5 লক্ষ পর্যন্ত কভার)।"],
+"State health schemes":["రాష్ట్ర ఆరోగ్య పథకాలు","மாநில சுகாதாரத் திட்டங்கள்","ರಾಜ್ಯ ಆರೋಗ್ಯ ಯೋಜನೆಗಳು","സംസ്ഥാന ആരോഗ്യ പദ്ധതികൾ","রাজ্যের স্বাস্থ্য প্রকল্প"],
+"check with your state health department (e.g. Aarogyasri, CMCHIS).":["మీ రాష్ట్ర ఆరోగ్య శాఖను సంప్రదించండి (ఉదా. Aarogyasri, CMCHIS).","உங்கள் மாநில சுகாதாரத் துறையை அணுகவும் (எ.கா. Aarogyasri, CMCHIS).","ನಿಮ್ಮ ರಾಜ್ಯ ಆರೋಗ್ಯ ಇಲಾಖೆಯನ್ನು ಸಂಪರ್ಕಿಸಿ (ಉದಾ. Aarogyasri, CMCHIS).","നിങ്ങളുടെ സംസ്ഥാന ആരോഗ്യ വകുപ്പിനെ സമീപിക്കുക (ഉദാ. Aarogyasri, CMCHIS).","আপনার রাজ্যের স্বাস্থ্য দপ্তরে যোগাযোগ করুন (যেমন Aarogyasri, CMCHIS)।"],
+"Senior citizen support":["వృద్ధుల సహాయం","மூத்த குடிமக்கள் ஆதரவு","ಹಿರಿಯ ನಾಗರಿಕರ ಬೆಂಬಲ","മുതിർന്ന പൗരന്മാർക്കുള്ള പിന്തുണ","প্রবীণ নাগরিক সহায়তা"],
+"ask your hospital about concessions and free check-ups.":["రాయితీలు, ఉచిత పరీక్షల గురించి మీ ఆసుపత్రిని అడగండి.","சலுகைகள், இலவசப் பரிசோதனைகள் பற்றி மருத்துவமனையிடம் கேளுங்கள்.","ರಿಯಾಯಿತಿ, ಉಚಿತ ತಪಾಸಣೆ ಬಗ್ಗೆ ನಿಮ್ಮ ಆಸ್ಪತ್ರೆಯನ್ನು ಕೇಳಿ.","ഇളവുകളെയും സൗജന്യ പരിശോധനകളെയും കുറിച്ച് ആശുപത്രിയോട് ചോദിക്കൂ.","ছাড় ও বিনামূল্যে পরীক্ষার বিষয়ে হাসপাতালকে জিজ্ঞাসা করুন।"],
+"No scheme matched. Please ask your nearest hospital or CSC about charity care and cost assistance.":["ఏ పథకమూ సరిపోలేదు. సహాయం కోసం దగ్గరి ఆసుపత్రి లేదా CSC ని అడగండి.","பொருந்தும் திட்டம் இல்லை. உதவிக்கு அருகிலுள்ள மருத்துவமனை அல்லது CSC ஐ அணுகவும்.","ಯಾವ ಯೋಜನೆಯೂ ಹೊಂದಿಕೆಯಾಗಲಿಲ್ಲ. ಸಹಾಯಕ್ಕೆ ಹತ್ತಿರದ ಆಸ್ಪತ್ರೆ ಅಥವಾ CSC ಯನ್ನು ಕೇಳಿ.","യോജിച്ച പദ്ധതി ഇല്ല. സഹായത്തിനായി അടുത്തുള്ള ആശുപത്രിയോ CSC യോ സമീപിക്കുക.","কোনো প্রকল্প মেলেনি। সাহায্যের জন্য কাছের হাসপাতাল বা CSC-তে যোগাযোগ করুন।"],
+"Preliminary guide only; final eligibility is decided by the scheme authority. Please confirm at your nearest hospital or Common Service Centre.":["ఇది ప్రాథమిక మార్గదర్శి మాత్రమే; తుది అర్హతను పథక అధికారులు నిర్ణయిస్తారు. దగ్గరి ఆసుపత్రి/CSC లో నిర్ధారించుకోండి.","இது முன்னோட்ட வழிகாட்டி மட்டுமே; இறுதித் தகுதியை திட்ட அதிகாரிகள் முடிவு செய்வர். அருகிலுள்ள மருத்துவமனை/CSC இல் உறுதிசெய்யுங்கள்.","ಇದು ಪ್ರಾಥಮಿಕ ಮಾರ್ಗದರ್ಶಿ ಮಾತ್ರ; ಅಂತಿಮ ಅರ್ಹತೆಯನ್ನು ಯೋಜನಾ ಪ್ರಾಧಿಕಾರ ನಿರ್ಧರಿಸುತ್ತದೆ. ಹತ್ತಿರದ ಆಸ್ಪತ್ರೆ/CSC ಯಲ್ಲಿ ಖಚಿತಪಡಿಸಿ.","ഇത് പ്രാഥമിക വഴികാട്ടി മാത്രം; അന്തിമ യോഗ്യത പദ്ധതി അധികാരികൾ തീരുമാനിക്കും. അടുത്തുള്ള ആശുപത്രി/CSC യിൽ ഉറപ്പാക്കുക.","এটি শুধু প্রাথমিক নির্দেশিকা; চূড়ান্ত যোগ্যতা প্রকল্প কর্তৃপক্ষ ঠিক করে। কাছের হাসপাতাল/CSC-তে নিশ্চিত করুন।"],
+"Hope, delivered. 💙":["ఆశను అందిస్తున్నాం 💙","நம்பிக்கை உங்கள் வாசலுக்கு 💙","ಭರವಸೆ ನಿಮ್ಮ ಬಳಿಗೆ 💙","പ്രതീക്ഷ നിങ്ങളിലേക്ക് 💙","আশা পৌঁছে দিচ্ছি 💙"],
+"GitHub repository":["GitHub రిపాజిటరీ","GitHub களஞ்சியம்","GitHub ರೆಪೊಸಿಟರಿ","GitHub റിപ്പോസിറ്ററി","GitHub রিপোজিটরি"],
+"Built for rural communities and senior citizens":["గ్రామీణులు, వృద్ధుల కోసం రూపొందించబడింది","கிராம மக்கள், மூத்தோருக்காக உருவாக்கப்பட்டது","ಗ್ರಾಮೀಣರು ಮತ್ತು ಹಿರಿಯರಿಗಾಗಿ ರೂಪಿಸಲಾಗಿದೆ","ഗ്രാമീണർക്കും മുതിർന്നവർക്കുമായി നിർമ്മിച്ചത്","গ্রামীণ মানুষ ও প্রবীণদের জন্য তৈরি"],
+"Prototype with simulated data – not a substitute for professional medical care.":["అనుకరణ డేటాతో ప్రోటోటైప్ – వైద్య చికిత్సకు ప్రత్యామ్నాయం కాదు.","உருவக தரவுடன் முன்மாதிரி – மருத்துவ சிகிச்சைக்கு மாற்றல்ல.","ಅನುಕರಣ ಡೇಟಾದ ಮಾದರಿ – ವೈದ್ಯಕೀಯ ಚಿಕಿತ್ಸೆಗೆ ಪರ್ಯಾಯವಲ್ಲ.","അനുകരണ ഡാറ്റയുള്ള മാതൃക – വൈദ്യ ചികിത്സയ്ക്ക് പകരമല്ല.","অনুকরণ করা তথ্যসহ প্রোটোটাইপ – চিকিৎসার বিকল্প নয়।"],
+"Calling for emergency help. Please dial one zero eight for an ambulance, and share your location.":["అత్యవసర సహాయం కోసం, అంబులెన్స్‌కు 108 డయల్ చేసి, మీ లొకేషన్ పంచుకోండి.","அவசர உதவிக்கு, ஆம்புலன்ஸுக்கு 108 ஐ அழைத்து, உங்கள் இருப்பிடத்தைப் பகிருங்கள்.","ತುರ್ತು ಸಹಾಯಕ್ಕೆ ಆಂಬ್ಯುಲೆನ್ಸ್‌ಗೆ 108 ಕರೆ ಮಾಡಿ, ನಿಮ್ಮ ಸ್ಥಳ ಹಂಚಿ.","അടിയന്തര സഹായത്തിന് ആംബുലൻസിനായി 108 വിളിക്കൂ, ലൊക്കേഷൻ പങ്കിടൂ.","জরুরি সাহায্যে অ্যাম্বুলেন্সের জন্য 108 ডায়াল করুন এবং লোকেশন শেয়ার করুন।"],
+"Your next medicine is Vitamin D at two P M.":["మీ తదుపరి మందు మధ్యాహ్నం 2 గంటలకు విటమిన్ డి.","உங்கள் அடுத்த மருந்து மதியம் 2 மணிக்கு வைட்டமின் டி.","ನಿಮ್ಮ ಮುಂದಿನ ಔಷಧ ಮಧ್ಯಾಹ್ನ 2 ಗಂಟೆಗೆ ವಿಟಮಿನ್ ಡಿ.","നിങ്ങളുടെ അടുത്ത മരുന്ന് ഉച്ചയ്ക്ക് 2 മണിക്ക് വിറ്റാമിൻ ഡി.","আপনার পরবর্তী ওষুধ দুপুর ২টায় ভিটামিন ডি।"],
+"Your drone is on its way. Please keep an open space ready.":["మీ డ్రోన్ వస్తోంది. ఖాళీ స్థలం సిద్ధంగా ఉంచండి.","உங்கள் ட்ரோன் வருகிறது. திறந்தவெளியைத் தயாராக வையுங்கள்.","ನಿಮ್ಮ ಡ್ರೋನ್ ಬರುತ್ತಿದೆ. ಖಾಲಿ ಜಾಗ ಸಿದ್ಧವಿಡಿ.","നിങ്ങളുടെ ഡ്രോൺ വരുന്നു. തുറന്ന സ്ഥലം ഒരുക്കി വയ്ക്കൂ.","আপনার ড্রোন আসছে। খোলা জায়গা প্রস্তুত রাখুন।"],
+"Voice input is not supported in this browser. Please try Chrome.":["ఈ బ్రౌజర్‌లో వాయిస్ ఇన్‌పుట్ లేదు. Chrome ప్రయత్నించండి.","இந்த உலாவியில் குரல் உள்ளீடு இல்லை. Chrome முயலவும்.","ಈ ಬ್ರೌಸರ್‌ನಲ್ಲಿ ಧ್ವನಿ ಇನ್‌ಪುಟ್ ಇಲ್ಲ. Chrome ಬಳಸಿ.","ഈ ബ്രൗസറിൽ വോയ്സ് ഇൻപുട്ട് ലഭ്യമല്ല. Chrome ശ്രമിക്കൂ.","এই ব্রাউজারে ভয়েস ইনপুট নেই। Chrome ব্যবহার করুন।"]
+};
+function tr(s,i){let m=s.match(/^(\d+) min$/);if(m)return m[1]+" "+MN[i];m=s.match(/^(\d) of 3 medicines taken\. Keep going!$/);if(m)return (i==5?H["# of 3 medicines taken. Keep going!"]:D["# of 3 medicines taken. Keep going!"][i]).replace("#",m[1]);const v=i==5?H[s]:(D[s]||[])[i];return v||null}
+function doNode(n,i){if(i==null||n.__t===n.data)return;const s=n.data,p=s.match(PRE)[0],r=s.slice(p.length),c=r.trimEnd(),t=c&&tr(c,i);if(t){n.__o=s;n.__t=p+t+r.slice(c.length);n.data=n.__t}}
+function walk(root,i){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){const e=n.parentElement;if(e&&!/^(SCRIPT|STYLE)$/.test(e.tagName))doNode(n,i)}}
+let CI=null;
+function applyLang(l){
+$$("h2").forEach(h=>{if(h.__o!=null){h.innerHTML=h.__o;h.__o=null}});
+const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){if(n.__o!=null&&n.__t===n.data){n.data=n.__o;n.__t=null}}
+CI=LI[l]??null;document.documentElement.lang=l;
+if(CI!=null){$$("h2").forEach(h=>{const s=h.innerHTML,p=s.match(PRE)[0],k=s.slice(p.length),t=CI==5?H[k]:(D[k]||[])[CI];if(t){h.__o=s;h.innerHTML=p+t}});walk(document.body,CI)}}
+new MutationObserver(ms=>{if(CI==null)return;ms.forEach(m=>{if(m.type=="characterData")doNode(m.target,CI);else m.addedNodes.forEach(a=>a.nodeType==3?doNode(a,CI):a.nodeType==1&&walk(a,CI))})}).observe(document.body,{subtree:true,childList:true,characterData:true});
+</script>
+</body>
+</html>
